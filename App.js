@@ -1,16 +1,42 @@
-import React from "react";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator  } from '@react-navigation/native-stack';
+import MapScreen from './Componenets/MapScreen';
+import Dashboard from './Componenets/Dashboard';
 
-import {View,Text,StyleSheet} from 'react-native';
-import MapScreen from "./Componenets/MapScreen";
-import Geolocation from '@react-native-community/geolocation';
+const Stack = createNativeStackNavigator ();
 
-const App =()=>{
- // Geolocation.getCurrentPosition(data=>(console.log(data)));
-return(
-    <MapScreen/>
-)
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Map"
+        screenOptions={{
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#0080ff'
+          },
+          headerTintColor: '#ffffff',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontWeight: 'bold'
+          }
+        }}
+      >
+        <Stack.Screen
+          name="Map"
+          component={MapScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Dashboard}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles=StyleSheet.create({});
 
 export default App;

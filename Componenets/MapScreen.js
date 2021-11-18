@@ -3,8 +3,9 @@ import { StyleSheet, Text, View , PermissionsAndroid,} from "react-native";
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
 import Geolocation from '@react-native-community/geolocation';
+import CustomButton from './CustomButton'
 
-export default function MapScreen() {
+export default function MapScreen({navigation}) {
     const [position, setPosition] = useState({
         latitude: 10,
         longitude: 10,
@@ -24,6 +25,9 @@ export default function MapScreen() {
           console.log(err);
         });
       }, []);
+      const setData=()=>{
+        navigation.navigate('Home');
+      }
   return (
     <View style={styles.container}>
     {/*Render our MapView*/}
@@ -32,9 +36,14 @@ export default function MapScreen() {
         //specify our coordinates.
         initialRegion={position}
         showsUserLocation={true}
-      >
-           <Marker coordinate={position} />
+      > 
+      <Marker coordinate={position} />
           </MapView>
+          <CustomButton
+           title='Dashboard'
+           color='#0080ff'
+           onPressFunction={setData}/>
+
       <Text style={styles.text}>Current latitude: {position.latitude}</Text>
     <Text style={styles.text}>Current longitude: {position.longitude}</Text>
     </View>
