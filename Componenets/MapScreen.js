@@ -38,7 +38,10 @@ export default function MapScreen({ navigation }) {
         }).catch((err) => {
             console.log(err);
         });
-        getLocation();
+        if(!((position.latitude===10)&&(position.longitude===10))){
+            getLocation();
+        }
+      
     }, []);
 
     const createTable = () => {
@@ -55,7 +58,7 @@ export default function MapScreen({ navigation }) {
         // navigation.navigate('Home');
         //
         //getLocation();
-        setInterval(() => getLocation(), 300000)
+        setInterval(() => getLocation(), 10000)
         navigation.navigate('Home');
     }
     const getLocation = async () => {

@@ -23,7 +23,7 @@ const Dashboard = ({ navigation }) => {
                 [],
                 (tx, results) => {
                     var temp = [];
-                    for (let i = 1; i < results.rows.length; ++i)
+                    for (let i = 0; i < results.rows.length; ++i)
                         temp.push(results.rows.item(i));
                     setItems(temp);
 
