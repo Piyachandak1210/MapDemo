@@ -23,7 +23,7 @@ const Dashboard = ({ navigation }) => {
                 [],
                 (tx, results) => {
                     var temp = [];
-                    for (let i = 0; i < results.rows.length; ++i)
+                    for (let i = 1; i < results.rows.length; ++i)
                         temp.push(results.rows.item(i));
                     setItems(temp);
 
@@ -67,6 +67,9 @@ const Dashboard = ({ navigation }) => {
             <View style={{ flex: 1 }}>
                 <Text style={{ fontSize: 20, textAlign: 'center', color: 'black', padding: 10 }}>
                     My Location
+                </Text>
+                <Text style={{ fontSize: 20, textAlign: 'center', color: 'black', padding: 10 }}>
+                   Location will update after Every 30 minutes
                 </Text>
                 {empty ? emptyMSG(empty) :
 

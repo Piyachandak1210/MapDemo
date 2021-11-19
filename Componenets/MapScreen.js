@@ -53,8 +53,9 @@ export default function MapScreen({ navigation }) {
 
     const setData = () => {
         // navigation.navigate('Home');
+        //
         //getLocation();
-        setInterval(() => getLocation(), 15000)
+        setInterval(() => getLocation(), 300000)
         navigation.navigate('Home');
     }
     const getLocation = async () => {
@@ -87,10 +88,9 @@ export default function MapScreen({ navigation }) {
     }
     return (
         <View style={styles.container}>
-            {/*Render our MapView*/}
+            
             <MapView
                 style={styles.map}
-                //specify our coordinates.
                 initialRegion={position}
                 showsUserLocation={true}
             >
@@ -106,11 +106,11 @@ export default function MapScreen({ navigation }) {
         </View>
     );
 }
-//create our styling code:
+
 const styles = StyleSheet.create({
     container: {
         ...StyleSheet.absoluteFillObject,
-        flex: 1, //the container will fill the whole screen.
+        flex: 1, 
         justifyContent: "flex-end",
         alignItems: "center",
     },
